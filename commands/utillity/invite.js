@@ -5,7 +5,7 @@ exports.run = (bot, message, args) => {
   let link = `https://discord.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot+applications.commands&permissions=8989934591`
     let msgembed = new Discord.MessageEmbed()
       .setColor(process.env.DISCORD_BOT_EMBED_COLOR||'#0affaf')
-      .setTitle("Invite me! <:koulove:801419554156445726>")
+      .setTitle("Invite me! ❤️❤️❤️")
       .addField(process.env.DISCORD_BOT_USERNAME, '[Click here]' + `(${link})`)
       //.addField("Tairitsu", '[Click here]' + `(${link2})`)
       //.addField("Al!ce (Unstable)", '[Click here]' + `(${link3})`)
@@ -21,7 +21,7 @@ exports.interaction= async(bot, interaction, args) =>{
   let link = `https://discord.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot+applications.commands&permissions=8989934591`
 let embed = new Discord.MessageEmbed()
       .setColor(process.env.DISCORD_BOT_EMBED_COLOR||'#0affaf')
-       .setTitle("Invite me! <:koulove:801419554156445726>")
+       .setTitle("Invite me! ❤️❤️❤️")
       .addField(process.env.DISCORD_BOT_USERNAME, '[Click here]' + `(${link})`)
       //.setThumbnail(bot.user.displayAvatarURL({dynamic: true}))
       //.addField("Tairitsu", '[Click here]' + `(${link2})`)

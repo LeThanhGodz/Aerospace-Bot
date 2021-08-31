@@ -4,7 +4,7 @@ exports.run = (bot, message, args) => {
              `https://discord.gg/${process.env.DISCORD_BOT_INVITE}`
          let msgembed = new Discord.MessageEmbed()
       .setColor(process.env.DISCORD_BOT_EMBED_COLOR||'#0affaf')
-         .setTitle("Supports <:koulove:801419554156445726>")
+         .setTitle("Supports ❤️")
       .setDescription('My main support server: [Click here]' + `(${link})`)
       .setThumbnail(bot.user.displayAvatarURL({dynamic: true}))
        message.noMentionReply("Generating support servers invites...")
@@ -18,7 +18,7 @@ exports.interaction = async(bot, interaction, args) => {
              `https://discord.gg/${process.env.DISCORD_BOT_INVITE}`
          let embed = new Discord.MessageEmbed()
       .setColor(process.env.DISCORD_BOT_EMBED_COLOR||'#0affaf')
-      .setTitle("Supports <:koulove:801419554156445726>")
+      .setTitle("Supports ❤️")
       .setDescription('My main support server: [Click here]' + `(${link})`)
       .setThumbnail(bot.user.displayAvatarURL({dynamic: true}))
        bot.api.interactions(interaction.id, interaction.token).callback.post({

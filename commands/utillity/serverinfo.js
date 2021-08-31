@@ -46,7 +46,7 @@ exports.run = async (bot, message, args) => {
 			.setDescription([
 				`**Name**\n${message.guild.name}`,
 				`**Server ID**\n${message.guild.id}`,
-				`**Owner**\n${message.guild.owner.user.tag} (${message.guild.ownerID})`,
+				`**Owner**\n${message.guild.owner.user.name} (${message.guild.ownerID})`,
 				`**Region**\n${regions[message.guild.region]}`,
 				`**Boost Level**\n${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
         `**Server Boosts**\n${message.guild.premiumSubscriptionCount || '0'}`,

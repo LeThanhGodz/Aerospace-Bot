@@ -143,7 +143,7 @@ exports.run = async (bot, message, args) => {
           page = 9;
         } else
           return message.mentionReply(
-            `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Unknown Command or Category"
+            `${process.env.EMOTE_NO || '❌'}`+" | Unknown Command or Category"
           );
       } else {
         let commandinfo = new discord.MessageEmbed()
@@ -170,21 +170,21 @@ about the brackets:
       pages[page - 1]
     }
 
-React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`);
+React ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`);
 
     message.noMentionReply(embed).then(msg => {
-        msg.react(process.env.EMOTE_LEFT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")||"766649447413055498");
-        msg.react(process.env.EMOTE_RIGHT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")||"766649411014361159").then(r => {
+        msg.react(process.env.EMOTE_LEFT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")||"◀️");
+        msg.react(process.env.EMOTE_RIGHT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")||"▶️").then(r => {
           msg.react("🗑");
           const BackwardFilter = (reaction, user) =>
-          reaction.emoji.id === process.env.EMOTE_LEFT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","") &&
+          reaction.emoji.name === process.env.EMOTE_LEFT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","") &&
           user.id === message.author.id||
-          reaction.emoji.id === "766649447413055498" &&
+          reaction.emoji.name === "◀️" &&
           user.id === message.author.id;
         const ForwardFilter = (reaction, user) =>
-          reaction.emoji.id === process.env.EMOTE_RIGHT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")&&
+          reaction.emoji.name === process.env.EMOTE_RIGHT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")&&
           user.id === message.author.id||
-          reaction.emoji.id === "766649411014361159" &&
+          reaction.emoji.name === "▶️" &&
           user.id === message.author.id;
         const CloseFilter = (reaction, user) =>
           reaction.emoji.name === "🗑" && user.id === message.author.id;
@@ -219,7 +219,7 @@ React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to 
           if (page == 1) {
             embed.setDescription(`${pages[page - 1]}
 
-React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`);
+React ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`);
             msg.edit(embed);
             return;
           }
@@ -227,8 +227,8 @@ React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to 
             `${pages[page - 1]}` +
               `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1}
-Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1}
+Or react with ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`
           );
           embed.setTitle(`Page ${page}/${pages.length}`);
           msg.edit(embed);
@@ -239,7 +239,7 @@ Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}t
           if (page == 1) {
             embed.setDescription(`${pages[page - 1]}
 
-React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`);
+React ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`);
             msg.edit(embed);
             return;
           }
@@ -247,8 +247,8 @@ React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to 
             `${pages[page - 1]}` +
               `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1}
-Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1}
+Or react with ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`
           );
           embed.setTitle(`Page ${page}/${pages.length}`);
           msg.edit(embed);
@@ -271,7 +271,7 @@ Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}t
               `${pages[page - 1]}` +
                 `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1}`
             );
             embed.setTitle(`Page ${page}/${pages.length}`);
             msg.edit(embed);
@@ -281,8 +281,8 @@ React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go 
             pages[page - 1] +
               `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1} 
-Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1} 
+Or react with ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`
           );
           embed.setTitle(`Page ${page}/${pages.length}`);
           msg.edit(embed);
@@ -295,7 +295,7 @@ Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}t
               `${pages[page - 1]}` +
                 `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1}`
             );
             embed.setTitle(`Page ${page}/${pages.length}`);
             msg.edit(embed);
@@ -305,8 +305,8 @@ React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go 
             pages[page - 1] +
               `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1} 
-Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1} 
+Or react with ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`
           );
           embed.setTitle(`Page ${page}/${pages.length}`);
           msg.edit(embed);
@@ -326,7 +326,7 @@ Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}t
           );
         if (!command)
           return message.mentionReply(
-            `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Unknown Command"
+            `${process.env.EMOTE_NO || '❌'}`+" | Unknown Command"
           );
         let commandinfo = new discord.MessageEmbed()
           .setTitle("Command: " + command.info.name)
@@ -433,7 +433,7 @@ about the brackets:
             page = 9;
           } else
             return message.mentionReply(
-              `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Unknown Command or Category"
+              `${process.env.EMOTE_NO || '❌'}`+" | Unknown Command or Category"
             );
         } else {
           let commandinfo = new discord.MessageEmbed()
@@ -460,21 +460,21 @@ about the brackets:
         pages[page - 1]
       }
 
-React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`);
+React ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`);
 
       message.noMentionReply(embed).then(msg => {
-        msg.react(process.env.EMOTE_LEFT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")||"766649447413055498");
-        msg.react(process.env.EMOTE_RIGHT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")||"766649411014361159").then(r => {
+        msg.react(process.env.EMOTE_LEFT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")||"◀️");
+        msg.react(process.env.EMOTE_RIGHT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")||"▶️").then(r => {
           msg.react("🗑");
           const BackwardFilter = (reaction, user) =>
-          reaction.emoji.id === process.env.EMOTE_LEFT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","") &&
+          reaction.emoji.name === process.env.EMOTE_LEFT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","") &&
           user.id === message.author.id||
-          reaction.emoji.id === "766649447413055498" &&
+          reaction.emoji.name === "◀️" &&
           user.id === message.author.id;
         const ForwardFilter = (reaction, user) =>
-          reaction.emoji.id === process.env.EMOTE_RIGHT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")&&
+          reaction.emoji.name === process.env.EMOTE_RIGHT.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "").replace(" ","")&&
           user.id === message.author.id||
-          reaction.emoji.id === "766649411014361159" &&
+          reaction.emoji.name === "▶️" &&
           user.id === message.author.id;
           const CloseFilter = (reaction, user) =>
             reaction.emoji.name === "🗑" && user.id === message.author.id;
@@ -509,7 +509,7 @@ React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to 
             if (page == 1) {
               embed.setDescription(`${pages[page - 1]}
 
-React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`);
+React ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`);
               msg.edit(embed);
               return;
             }
@@ -517,8 +517,8 @@ React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to 
               `${pages[page - 1]}` +
                 `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1}
-Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1}
+Or react with ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`
             );
             embed.setTitle(`Page ${page}/${pages.length}`);
             msg.edit(embed);
@@ -529,7 +529,7 @@ Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}t
             if (page == 1) {
               embed.setDescription(`${pages[page - 1]}
 
-React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`);
+React ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`);
               msg.edit(embed);
               return;
             }
@@ -537,8 +537,8 @@ React ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to 
               `${pages[page - 1]}` +
                 `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1}
-Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1}
+Or react with ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`
             );
             embed.setTitle(`Page ${page}/${pages.length}`);
             msg.edit(embed);
@@ -561,7 +561,7 @@ Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}t
                 `${pages[page - 1]}` +
                   `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1}`
               );
               embed.setTitle(`Page ${page}/${pages.length}`);
               msg.edit(embed);
@@ -571,8 +571,8 @@ React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go 
               pages[page - 1] +
                 `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1} 
-Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1} 
+Or react with ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`
             );
             embed.setTitle(`Page ${page}/${pages.length}`);
             msg.edit(embed);
@@ -585,7 +585,7 @@ Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}t
                 `${pages[page - 1]}` +
                   `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1}`
               );
               embed.setTitle(`Page ${page}/${pages.length}`);
               msg.edit(embed);
@@ -595,8 +595,8 @@ React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go 
               pages[page - 1] +
                 `
 
-React with ${process.env.EMOTE_LEFT||'<:botarrowleft:766649447413055498>'}to go back page ${page - 1} 
-Or react with ${process.env.EMOTE_RIGHT||'<:botarrowright:766649411014361159>'}to go to page ${page + 1}`
+React with ${process.env.EMOTE_LEFT||'◀️'}to go back page ${page - 1} 
+Or react with ${process.env.EMOTE_RIGHT||'▶️'}to go to page ${page + 1}`
             );
             embed.setTitle(`Page ${page}/${pages.length}`);
             msg.edit(embed);
@@ -716,7 +716,7 @@ try{
                 data: {
                     type: 4,
                     data: {
-                        content: `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Unknown Command or Category"
+                        content: `${process.env.EMOTE_NO || '❌'}`+" | Unknown Command or Category"
                     }
                 }
             });

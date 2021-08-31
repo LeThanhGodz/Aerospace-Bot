@@ -8,8 +8,7 @@ exports.run = (bot, message, args) => {
       .addField("Version", version, true)
       .setThumbnail(bot.user.avatarURL({dynamic:true, size: 1024}))
       .addField("Bot Owner/Lead Developer", process.env.DISCORD_BOT_OWNER, true)
-      //.addField("Bot Developers", "[404]-QuangBùi#6288, t404owo#2452", true)
-      //.addField("Bot's Arcaea Wiki Members","t404owo#2452 mitsuko21#3187, TriPizza#7407",true)
+
       //.setFooter("")
       .setColor(process.env.DISCORD_BOT_EMBED_COLOR||"#0affaf")
       return message.noMentionReply(embed);
@@ -24,8 +23,7 @@ exports.interaction = async(bot, interaction, args) => {
       .addField("Version", version, true)
       .setThumbnail(bot.user.avatarURL({dynamic:true, size: 1024}))
       .addField("Bot Owner/Lead Developer", process.env.DISCORD_BOT_OWNER, true)
-      //.addField("Bot Developers", "[404]-QuangBùi#6288, t404owo#2452", true)
-      //.addField("Bot's Arcaea Wiki Members","t404owo#2452 mitsuko21#3187, TriPizza#7407",true)
+
       //.setFooter("")
       .setColor(process.env.DISCORD_BOT_EMBED_COLOR||"#0affaf")
       return bot.api.interactions(interaction.id, interaction.token).callback.post({
