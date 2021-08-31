@@ -16,13 +16,13 @@ module.exports = {
 
     
     const channel = message.member.voice.channel
-    if (!channel)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+' | You need to join a voice channel to use this command!', message);
-    if (message.guild.me.voice.channel !== channel)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+' | You need to join voice channel where the bot is to use this command!', message);    
+    if (!channel)return sendError(`${process.env.EMOTE_NO || '❌>'}`+' | You need to join a voice channel to use this command!', message);
+    if (message.guild.me.voice.channel !== channel)return sendError(`${process.env.EMOTE_NO || '❌'}`+' | You need to join voice channel where the bot is to use this command!', message);    
     
     const Queue = await message.client.queue.get(message.guild.id);
 
     if (!Queue)
-      return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | There is nothing playing in this server.", message);
+      return sendError(`${process.env.EMOTE_NO || '❌'}`+" | There is nothing playing in this server.", message);
     
      const Current = await Queue.songs.shift();
     
@@ -36,8 +36,8 @@ Queue.songs.splice(0, Queue.songs.length)
     }
     
     await Queue.songs.unshift(Current);
-    message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"801419553841741904");
-    sendSuccess(`${process.env.EMOTE_OK || '<:hikariok:801419553841741904>'}`+" | Queue Has Been Shuffled", message, client)
+    message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"✅");
+    sendSuccess(`${process.env.EMOTE_OK || '✅'}`+" | Queue Has Been Shuffled", message, client)
 
   },
   interaction: async (client, message, args) => {
@@ -47,13 +47,13 @@ Queue.songs.splice(0, Queue.songs.length)
     
     const channel = await client.guilds.cache.get(message.guild_id).members.cache.get(message.member.user.id).voice.channel
 
-    if (!channel)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+' | You need to join a voice channel to use this command!', message, client);
-    if (client.guilds.cache.get(message.guild_id).me.voice.channel !== channel)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+' | You need to join voice channel where the bot is to use this command!', message, client);    
+    if (!channel)return sendError(`${process.env.EMOTE_NO || '❌'}`+' | You need to join a voice channel to use this command!', message, client);
+    if (client.guilds.cache.get(message.guild_id).me.voice.channel !== channel)return sendError(`${process.env.EMOTE_NO || '❌'}`+' | You need to join voice channel where the bot is to use this command!', message, client);    
     
     const Queue = await client.guilds.cache.get(message.guild_id).client.queue.get(message.guild_id);
     
     if (!Queue)
-      return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | There is nothing playing in this server.", message, client);
+      return sendError(`${process.env.EMOTE_NO || '❌'}`+" | There is nothing playing in this server.", message, client);
     
     const Current = await Queue.songs.shift();
     
@@ -67,8 +67,8 @@ Queue.songs.splice(0, Queue.songs.length)
     }
     
     await Queue.songs.unshift(Current);
-    //message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"801419553841741904");
-    sendSuccess(`${process.env.EMOTE_OK || '<:hikariok:801419553841741904>'}`+" | Queue Has Been Shuffled", message, client)
+    //message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"869920204786925608");
+    sendSuccess(`${process.env.EMOTE_OK || '✅'}`+" | Queue Has Been Shuffled", message, client)
 
         
   },

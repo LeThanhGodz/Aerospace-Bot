@@ -4,19 +4,18 @@ const ms = require("ms")
 exports.run = async(bot, message, args) => {
      const permissions = message.channel.permissionsFor(message.client.user);
  let perm= message.channel.permissionsFor(message.member)//perm.has()
-  if(!permissions.has("MANAGE_ROLES")) return
-  if(!perm.has("MANAGE_ROLES")&&!perm.has("MANAGE_MEMBERS")&&!perm.has("MANAGE_GUILD")&&!perm.has("ADMINISTRATOR"))return
+  if(!perm.has("MANAGE_ROLES")&&!perm.has("MANAGE_GUILD")&&!perm.has("ADMINISTRATOR"))return
   if(!args[0])return message.mentionReply(
-          `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Please mention the person who you want to unmute"
+          `${process.env.EMOTE_NO || '❌'}`+" | Please mention the person who you want to unmute"
         );
-  let userm = await message.guild.members.fetch(args[0].replace("<@!", "").replace("<@", "").replace(">", "")).catch(err => { console.error(err);return message.mentionReply(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Unable to find this Person") })
+  let userm = await message.guild.members.fetch(args[0].replace("<@!", "").replace("<@", "").replace(">", "")).catch(err => { console.error(err);return message.mentionReply(`${process.env.EMOTE_NO || '❌'}`+" | Unable to find this Person") })
     
         let target = userm
  
 
 if (target === !args[0]) {
         return message.mentionReply(
-          `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Please mention the person who you want to unmute"
+          `${process.env.EMOTE_NO || '❌'}`+" | Please mention the person who you want to unmute"
         );
       }
   let reason = args.slice(1).join(" ");
@@ -68,7 +67,7 @@ let muterole= bot.db.get(`${message.guild.id}_muterole`)
       console.log(muterole+"\n"+muteroles)
 
       if(!target.roles.cache.has(muterole)){
-        return message.mentionReply(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | This user is not muted!")
+        return message.mentionReply(`${process.env.EMOTE_NO || '❌'}`+" | This user is not muted!")
       }
     
 
@@ -92,10 +91,10 @@ target.roles.remove(message.guild.roles.cache.find(r => r.id ===muterole).id)
   bot.db.delete(`${message.guild.id}_${userm.user.id}muteroles`)
  let reasonb = args.slice(1).join(" ");
   if(!reasonb) {
-  message.noMentionReply(`${process.env.EMOTE_OK || '<:hikariok:801419553841741904>'}`+" | Unmuted Sucessfully!")
+  message.noMentionReply(`${process.env.EMOTE_OK || '✅'}`+" | Unmuted Sucessfully!")
   }
   if(reasonb) {
-  message.noMentionReply(`${process.env.EMOTE_OK || '<:hikariok:801419553841741904>'}`+" | Unmuted Sucessfully! **|** " + reason)
+  message.noMentionReply(`${process.env.EMOTE_OK || '✅'}`+" | Unmuted Sucessfully! **|** " + reason)
   }
   
 }

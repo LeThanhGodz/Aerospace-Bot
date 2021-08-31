@@ -23,26 +23,26 @@ module.exports = {
     const channel = message.member.voice.channel;
     if (!channel)
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to join a voice channel to use this command!",
+        `${process.env.EMOTE_NO || '❌'}`+" | You need to join a voice channel to use this command!",
         message
       );
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT") && !permissions.has("ADMINISTRATOR"))
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | I cannot connect to your voice channel, make sure I have the proper permissions!",
+        `${process.env.EMOTE_NO || '❌'}`+" | I cannot connect to your voice channel, make sure I have the proper permissions!",
         message
       );
     if (!permissions.has("SPEAK") && !permissions.has("ADMINISTRATOR"))
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | I cannot speak in this voice channel, make sure I have the proper permissions!",
+        `${process.env.EMOTE_NO || '❌'}`+" | I cannot speak in this voice channel, make sure I have the proper permissions!",
         message
       );
 
     var searchString = args.join(" ");
     if (!searchString)
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You didn't provide what you want to play",
+        `${process.env.EMOTE_NO || '❌'}`+" | You didn't provide what you want to play",
         message
       );
     var songEmbed = await message.noMentionReply(
@@ -75,7 +75,7 @@ module.exports = {
       
       message.channel.stopTyping();
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Looks like I was unable to find the song on YouTube",
+        `${process.env.EMOTE_NO || '❌'}`+" | Looks like I was unable to find the song on YouTube",
         message
       );
     }
@@ -194,7 +194,7 @@ song.push({
         message.channel.stopTyping();
         if (message.guild.me.voice.channel !== channel)
           return sendError(
-            `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to join voice channel where the bot is to use this command!",
+            `${process.env.EMOTE_NO || '❌'}`+" | You need to join voice channel where the bot is to use this command!",
             message
           );
         serverQueue.songs.push(song);
@@ -279,7 +279,7 @@ song.push({
       message.client.queue.delete(message.guild.id);
       await channel.leave();
       return sendEror(
-        `<:tairitsuno:801419553933492245> | I could not join the voice channel: ${error}`,
+        `❌ | I could not join the voice channel: ${error}`,
         message.channel
       );
     }
@@ -303,7 +303,7 @@ song.push({
       .members.cache.get(interaction.member.user.id).voice.channel;
     if (!channel)
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to join a voice channel to use this command!",
+        `${process.env.EMOTE_NO || '❌'}`+" | You need to join a voice channel to use this command!",
         interaction,
         client
       );
@@ -313,13 +313,13 @@ song.push({
     );
     if (!permissions.has("CONNECT") && !permissions.has("ADMINISTRATOR"))
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | I cannot connect to your voice channel, make sure I have the proper permissions!",
+        `${process.env.EMOTE_NO || '❌'}`+" | I cannot connect to your voice channel, make sure I have the proper permissions!",
         interaction,
         client
       );
     if (!permissions.has("SPEAK") && !permissions.has("ADMINISTRATOR"))
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | I cannot speak in this voice channel, make sure I have the proper permissions!",
+        `${process.env.EMOTE_NO || '❌'}`+" | I cannot speak in this voice channel, make sure I have the proper permissions!",
         interaction,
         client
       );
@@ -327,7 +327,7 @@ song.push({
     var searchString = args.join(" ");
     if (!searchString)
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You didn't provide what you want to play",
+        `${process.env.EMOTE_NO || '❌'}`+" | You didn't provide what you want to play",
         interaction,
         client
       );
@@ -374,7 +374,7 @@ if(!searched.videos&&!searched.lists&&!searched.playlists)
       
       client.guilds.cache.get(interaction.guild_id).channels.cache.get(interaction.channel_id).stopTyping();
       return sendEror(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | Looks like I was unable to find the song on YouTube",
+        `${process.env.EMOTE_NO || '❌'}`+" | Looks like I was unable to find the song on YouTube",
         client.guilds.cache.get(interaction.guild_id).channels.cache.get(interaction.channel_id)
       );
     }
@@ -481,7 +481,7 @@ queueConstruct.songs.push(song[i]);
         client.guilds.cache.get(interaction.guild_id).channels.cache.get(interaction.channel_id).stopTyping();
         if (client.guilds.cache.get(interaction.guild_id).me.voice.channel !== channel)
           return sendError(
-            `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to join voice channel where the bot is to use this command!",
+            `${process.env.EMOTE_NO || '❌'}`+" | You need to join voice channel where the bot is to use this command!",
             interaction, client
           );
         serverQueue.songs.push(song);
@@ -577,7 +577,7 @@ queueConstruct.songs.push(song[i]);
         .client.queue.delete(interaction.guild_id);
       await channel.leave();
       return sendEror(
-        `<:tairitsuno:801419553933492245> | I could not join the voice channel: ${error}`,
+        `❌ | I could not join the voice channel: ${error}`,
         client.guilds.cache
           .get(interaction.guild_id)
           .channels.cache.get(interaction.channel_id)

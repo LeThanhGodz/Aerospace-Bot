@@ -8,7 +8,7 @@ exports.run = (bot, message, args) => {
   let perm=message.channel.permissionsFor(message.member)//perm.has()
       if (!perm.has("MANAGE_GUILD")&&!bot.config.owners.includes(message.author.id)&&!perm.has("MANAGE_CHANNELS")&&!perm.has("ADMINISTRATOR"))
       return message.mentionReply(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You can't use that command! you need at least manage channels, manage server or admin perm!"
+        `${process.env.EMOTE_NO || '❌'}`+" | You can't use that command! you need at least manage channels, manage server or admin perm!"
       );
     let autorole = `<@&`+bot.db.get(`${message.guild.id}_autorole`)+`>`;
       let log = bot.db.get(`${message.guild.id}_botlog`)+`>`;
@@ -19,19 +19,19 @@ exports.run = (bot, message, args) => {
       let mute =`<@&`+bot.db.get(`${message.guild.id}_muterole`)+`>`;
       let verifychannel = `<#`+bot.db.get(`${message.guild.id}_verifychannel`)+`>`;
       let verifyrole = `<@&`+bot.db.get(`${message.guild.id}_verifyrole`)+`>`;
-      if (!bot.db.get(`${message.guild.id}_autorole`)) autorole = process.env.EMOTE_NO || "<:hikarisorry:801419553892073483>";
-      if (!bot.db.get(`${message.guild.id}_botlog`)) log = process.env.EMOTE_NO ||  "<:hikarisorry:801419553892073483>";
-      if (!bot.db.get(`${message.guild.id}_welcomemessage`)) welcomemessage = process.env.EMOTE_NO ||  "<:hikarisorry:801419553892073483>";
-      if (!bot.db.get(`${message.guild.id}_leavemessage`)) leavemessage = process.env.EMOTE_NO ||  "<:hikarisorry:801419553892073483>";
-      if (!bot.db.get(`${message.guild.id}_welcomechannel`))welcomemessagesend = process.env.EMOTE_NO ||  "<:hikarisorry:801419553892073483>";
-      if (!bot.db.get(`${message.guild.id}_leavechannel`)) leave = process.env.EMOTE_NO ||  "<:hikarisorry:801419553892073483>";
-      if (!bot.db.get(`${message.guild.id}_muterole`)) mute = process.env.EMOTE_NO ||  "<:hikarisorry:801419553892073483>";
-      if (!bot.db.get(`${message.guild.id}_verifychannel`)) verifychannel = process.env.EMOTE_NO ||  "<:hikarisorry:801419553892073483>";
-      if (!bot.db.get(`${message.guild.id}_verifyrole`)) verifyrole = process.env.EMOTE_NO || "<:hikarisorry:801419553892073483>";
+      if (!bot.db.get(`${message.guild.id}_autorole`)) autorole = process.env.EMOTE_NO || "❌";
+      if (!bot.db.get(`${message.guild.id}_botlog`)) log = process.env.EMOTE_NO ||  "❌";
+      if (!bot.db.get(`${message.guild.id}_welcomemessage`)) welcomemessage = process.env.EMOTE_NO ||  "❌";
+      if (!bot.db.get(`${message.guild.id}_leavemessage`)) leavemessage = process.env.EMOTE_NO ||  "❌";
+      if (!bot.db.get(`${message.guild.id}_welcomechannel`))welcomemessagesend = process.env.EMOTE_NO ||  "❌";
+      if (!bot.db.get(`${message.guild.id}_leavechannel`)) leave = process.env.EMOTE_NO ||  "❌";
+      if (!bot.db.get(`${message.guild.id}_muterole`)) mute = process.env.EMOTE_NO ||  "❌";
+      if (!bot.db.get(`${message.guild.id}_verifychannel`)) verifychannel = process.env.EMOTE_NO ||  "❌";
+      if (!bot.db.get(`${message.guild.id}_verifyrole`)) verifyrole = process.env.EMOTE_NO || "❌";
       
       const embed = new MessageEmbed()
         .setTitle(
-          `Settings for ${message.guild.name}, if some setting has <:hikarisorry:801419553892073483> , that means you haven't setup for this setting yet, else if you have setting, it will show you what thing did you setting`
+          `Settings for ${message.guild.name}, if some setting has ❌ , that means you haven't setup for this setting yet, else if you have setting, it will show you what thing did you setting`
         )
         .setDescription(`${autorole} : welcome auto role
 ${log} : bot log

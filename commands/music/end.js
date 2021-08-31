@@ -18,21 +18,21 @@ module.exports = {
     const channel = message.member.voice.channel;
     if (!channel)
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to join a voice channel to use this command!",
+        `${process.env.EMOTE_NO || '❌'}`+" | You need to join a voice channel to use this command!",
         message
       );
     if (message.guild.me.voice.channel !== channel)
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to join voice channel where the bot is to use this command!",
+        `${process.env.EMOTE_NO || '❌'}`+" | You need to join voice channel where the bot is to use this command!",
         message
       );
     //await channel.leave();
-    message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"801419553841741904");
+    message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"✅");
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to play at least a song to use this command!",
+        `${process.env.EMOTE_NO || '❌'}`+" | You need to play at least a song to use this command!",
         message
       );
     } else {
@@ -40,7 +40,7 @@ module.exports = {
       message.client.queue.delete(message.guild.id);
       console.log("disconnected");
       sendSuccess(
-      `${process.env.EMOTE_OK || '<:hikariok:801419553841741904>'}`+" | Ended Successfully!",
+      `${process.env.EMOTE_OK || '✅'}`+" | Ended Successfully!",
       message
     );
     }
@@ -55,26 +55,26 @@ module.exports = {
       .members.cache.get(message.member.user.id).voice.channel;
     if (!channel)
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to join a voice channel to use this command!",
+        `${process.env.EMOTE_NO || '❌'}`+" | You need to join a voice channel to use this command!",
         message,
         client
       );
     if (client.guilds.cache.get(message.guild_id).me.voice.channel !== channel)
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to join voice channel where the bot is to use this command!",
+        `${process.env.EMOTE_NO || '❌'}`+" | You need to join voice channel where the bot is to use this command!",
         message,
         client
       );
 
     // await channel.leave();
-    //message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"801419553841741904");
+    //message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"869920204786925608");
     const serverQueue = client.guilds.cache
       .get(message.guild_id)
       .client.queue.get(message.guild_id);
 
     if (!serverQueue) {
       return sendError(
-        `${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You need to play at least a song to use this command!",
+        `${process.env.EMOTE_NO || '❌'}`+" | You need to play at least a song to use this command!",
         message,
         client
       );
@@ -84,7 +84,7 @@ module.exports = {
         .get(message.guild_id)
         .client.queue.delete(message.guild_id);
       console.log("disconnected");sendSuccess(
-      `${process.env.EMOTE_OK || '<:hikariok:801419553841741904>'}`+" | Ended Successfully!",
+      `${process.env.EMOTE_OK || '✅'}`+" | Ended Successfully!",
       message,
       client
     );

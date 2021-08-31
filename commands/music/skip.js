@@ -17,10 +17,10 @@ module.exports = {
   run: async function (client, message, args) {
     const sendError = require("../../util/error");
     const channel = message.member.voice.channel
-    if (!channel)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+' | You need to join a voice channel to use this command!', message);
-    if (message.guild.me.voice.channel !== channel)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+' | You need to join voice channel where the bot is to use this command!', message);
+    if (!channel)return sendError(`${process.env.EMOTE_NO || '❌'}`+' | You need to join a voice channel to use this command!', message);
+    if (message.guild.me.voice.channel !== channel)return sendError(`${process.env.EMOTE_NO || '❌'}`+' | You need to join voice channel where the bot is to use this command!', message);
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | There is nothing playing that I could skip for you.", message);
+    if (!serverQueue)return sendError(`${process.env.EMOTE_NO || '❌'}`+" | There is nothing playing that I could skip for you.", message);
     /*let{vote}=client
     const vcvote = Math.floor(message.guild.me.voice.channel.members.size / 2)
     const okie = Math.floor(message.guild.me.voice.channel.members.size / 2 - 1)
@@ -40,7 +40,7 @@ module.exports = {
        }
        
        if(vote.voters.includes(message.author.id)) {
-         return message.mentionReply("`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | You already voted for this song")
+         return message.mentionReply("`${process.env.EMOTE_NO || '<:tairitsuno:869919370208509962>'}`+" | You already voted for this song")
        }
        
        if(vcvote === 2) {
@@ -73,16 +73,16 @@ if (serverQueue.loop === true) {
     
     serverQueue.skip = true
     serverQueue.connection.dispatcher.end("Skiped the music");
-    message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"801419553841741904");
+    message.react(process.env.EMOTE_OK.replace(/<(a):([^+]*)([A-Za-z0-9]*)([^+]*)([A-Za-z0-9]*):/g, "").replace(/>/g, "")||"869920204786925608");
 },
   options:[],
   interaction: async function (client, message, args) {
     const sendError = require("../../util/slash/error"),sendSuccess = require("../../util/slash/success");
     const channel = client.guilds.cache.get(message.guild_id).members.cache.get(message.member.user.id).voice.channel
-    if (!channel)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+' | You need to join a voice channel to use this command!', message);
-    if (client.guilds.cache.get(message.guild_id).me.voice.channel !== channel)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+' | You need to join voice channel where the bot is to use this command!', message);
+    if (!channel)return sendError(`${process.env.EMOTE_NO || '❌'}`+' | You need to join a voice channel to use this command!', message);
+    if (client.guilds.cache.get(message.guild_id).me.voice.channel !== channel)return sendError(`${process.env.EMOTE_NO || '❌'}`+' | You need to join voice channel where the bot is to use this command!', message);
     const serverQueue = client.guilds.cache.get(message.guild_id).client.queue.get(message.guild_id);
-    if (!serverQueue)return sendError(`${process.env.EMOTE_NO || '<:tairitsuno:801419553933492245>'}`+" | There is nothing playing that I could skip for you.", message);
+    if (!serverQueue)return sendError(`${process.env.EMOTE_NO || '❌'}`+" | There is nothing playing that I could skip for you.", message);
     /*let{vote}=client
     const vcvote = Math.floor(client.guilds.cache.get(message.guild_id).me.voice.channel.members.size / 2)
     const okie = Math.floor(client.guilds.cache.get(message.guild_id).me.voice.channel.members.size / 2 - 1)
@@ -135,7 +135,7 @@ if (serverQueue.loop === true) {
     
     serverQueue.skip = true
     serverQueue.connection.dispatcher.end("Skiped the music");
-    sendSuccess(`${process.env.EMOTE_OK || '<:hikariok:801419553841741904>'}`+' | Skipped the song!', message, client)
+    sendSuccess(`${process.env.EMOTE_OK || '✅'}`+' | Skipped the song!', message, client)
 }
  // } 
       
